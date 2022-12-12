@@ -1,10 +1,11 @@
-import Button from './Button';
+import Background from './Background';
+import Clock from './clock';
 
 function App() {
   return (
     <div>
-      <h1>Welcome back!!</h1>
-      <Button text='Continue' />
+      <Clock />
+      <Background />
     </div>
   );
 }

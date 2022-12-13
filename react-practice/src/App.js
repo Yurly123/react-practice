@@ -1,27 +1,31 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function App() {
-  const [counter, setCounter] = useState(0)
-  const [keyword, setKeyword] = useState('')
-  useEffect(() => {
-    console.log('I run only once')
-  }, [])
-  useEffect(() => {
-    console.log('I run when [keyword] changes')
-  }, [keyword])
-  useEffect(() => {
-    console.log('I run when [counter] changes')
-  }, [counter])
+  const [todo, setTodo] = useState('')
+  const [todoList, setTodoList] = useState([])
 
-  const onClick = () => setCounter(prev => prev + 1) 
-  const onChange = (eventArg) => setKeyword(eventArg.target.value)
+  const onChange = (eventArg) => setTodo(eventArg.target.value)
+  const onSubmit = (eventArg) => {
+    eventArg.preventDefault()
+    if (!todo) return
+    setTodoList(list => [todo, ...list])
+    setTodo('')
+  }
   return (
-    <div>
-      <input type="text" placeholder="Search" onChange={onChange} value={keyword}></input>
-      <h1>{counter}</h1>
-      <button onClick={onClick}>Click Me!</button>
-    </div>
-  );
+    <React.Fragment>
+      <h1>My To Do ({todoList.length})</h1>
+      <form onSubmit={onSubmit}>
+        <input type="text" placeholder="Write your task" onChange={onChange} value={todo} />
+        <button>Add To Do</button>
+      </form>
+      <hr />
+      <ul>
+        {todoList.map((todo, index) =>
+          <li key={index}>{todo}</li>
+        )}
+      </ul>
+    </React.Fragment>
+  )
 }
 
 export default App;

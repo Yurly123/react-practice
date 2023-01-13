@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, Fragment } from 'react';
 
 function App() {
   const [todo, setTodo] = useState('')
@@ -12,7 +12,7 @@ function App() {
     setTodo('')
   }
   return (
-    <React.Fragment>
+    <Fragment>
       <h1>My To Do ({todoList.length})</h1>
       <form onSubmit={onSubmit}>
         <input type="text" placeholder="Write your task" onChange={onChange} value={todo} />
@@ -24,7 +24,7 @@ function App() {
           <li key={index}>{todo}</li>
         )}
       </ul>
-    </React.Fragment>
+    </Fragment>
   )
 }
 

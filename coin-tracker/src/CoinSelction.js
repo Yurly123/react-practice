@@ -26,7 +26,8 @@ function CoinSelection({ coins }) {
         return Math.floor(money / price)
     }
     function getNameOfCurrentCoin() {
-        const nameOfCurrentCoin = selectedCoin.match('^([a-z]|[A-Z])+').slice(0, -1)
+        let nameOfCurrentCoin = selectedCoin.match('^([a-z]|[A-Z])+').slice(0, -1)
+        if (getPurchaseableAmount() > 1) nameOfCurrentCoin += 's'
         return nameOfCurrentCoin
     }
 }

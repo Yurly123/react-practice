@@ -1,0 +1,35 @@
+:root {
+    --header-height: 50px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: var(--header-height);
+    top: 0%;
+    left: 0%;
+    background-color: pink;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+}
+
+.header nav {
+    flex: none;
+}
+
+.header nav * {
+    margin: 10px;
+}
+
+.header h1 {
+    margin: 0% auto;
+    text-align: center;
+    color: aliceblue;
+}
+
+.emptymargin {
+    height: var(--header-height);
+}

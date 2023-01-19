@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types'
+import css from './MovieDetail.module.css'
+const { container, headname, coverimg, description, gobutton } = css
 
 function MovieDetail({ title, coverImg, summary, whenUploaded, downloads, url }) {
     return (
-        <div>
-            <h1>{title}</h1>
-            <img src={coverImg} alt={title} />
-            <article>
+        <div className={container}>
+            <h1 className={headname}>{title}</h1>
+            <img src={coverImg} className={coverimg} alt={title} />
+            <article className={description}>
                 <p>{summary}</p>
                 <p>Upload Date : {whenUploaded}</p>
                 <p>Downloads : {downloads}</p>
             </article>
-            <a href={url} rel='noreferrer' target='_blank'><button>Go See</button></a>
+            <a href={url} rel='noreferrer' target='_blank'>
+                <button className={gobutton}>Go See</button>
+            </a>
         </div>
     )
 }
